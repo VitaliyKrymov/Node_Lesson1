@@ -11,6 +11,7 @@ const fs = require('fs');// ф-ї для роботи з файловою сис
 const path = require('path');//path -вміє будувати шляхи до файлу
 const textpath = path.join(__dirname, 'dir', 'text.txt');
 const textpath2 = path.join(__dirname, 'dir', 'text.txt');
+const dirToReadPath = path.join(__dirname, 'dir');
 
 console.log(textpath);
 //writeFile  повністю перезаписує файл і всю інфу
@@ -45,5 +46,24 @@ console.log(textpath);
 //     console.log(data.toString());
 // });
 
-//для зчитування директорії використовуємо
-fs.readdir(,);
+//для зчитування директорії використовуємо(вертається масив назв файлів які є в середині директорії)
+fs.readdir(dirToReadPath, (err, files) => {
+    if (err) {
+        console.log(err);
+        return
+    }
+    //прогоняємо циклом масив назв файлів і виводимо назву кожного окремого файлу
+    files.forEach(file => {
+        // console.log(file);
+        const filePath = path.join(dirToReadPath,file);
+    fs.stat(filePath,(err1, stats) => {
+        console.log('__________');
+        console.log(stats.isFile(),'IsFile');// виводимо статистику про file (true-false)
+        console.log(stats.isDirectory(),'IsDirectory');// виводимо статистику про Directory (true-false)
+        console.log(stats.size);
+        console.log('__________');
+    })
+    })
+    // console.log(files);
+});
+
