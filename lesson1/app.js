@@ -1,4 +1,4 @@
-const filedata = require('./dir/file1');
+const filedata = require('./dir/file1');//з ./dir/file1 підтягуємо(запускає виконання файлу file1.js але повертається тільки одне те  що експортується з запускаємого файлущо
 // console.log(filedata)
 const folder = require('./folder/file2');
 const folder1 = require('./folder');//запускає index.js -хоча він не вказаний
