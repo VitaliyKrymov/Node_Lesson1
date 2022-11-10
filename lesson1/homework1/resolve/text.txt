@@ -1,0 +1,9 @@
+[
+  Dirent { name: 'Katia.json', [Symbol(type)]: 1 },
+  Dirent { name: 'Oleg.json', [Symbol(type)]: 1 },
+  Dirent { name: 'Olia.json', [Symbol(type)]: 1 },
+  Dirent { name: 'Sergey.json', [Symbol(type)]: 1 },
+  Dirent { name: 'Uriy.json', [Symbol(type)]: 1 },
+  Dirent { name: 'groups', [Symbol(type)]: 2 },
+  Dirent { name: 'lessons', [Symbol(type)]: 2 }
+]
