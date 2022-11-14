@@ -1,5 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
+const express = require('express');
+
 
 fs.mkdir('./boys', (err) => {
     console.log(err)
@@ -38,12 +40,12 @@ const foo = async () => {
         const filePath = path.join(folderPath, file);
         const data = await fs.readFile(filePath);
 
-        const user = JSON.parse(data+'');
+        const user = JSON.parse(data + '');
 
         if (user.gender === 'male') {
-            await fs.rename(filePath, path.join(__dirname,'boys',file))
+            await fs.rename(filePath, path.join(__dirname, 'boys', file))
         } else {
-            await fs.rename(filePath, path.join(__dirname,'girls',file))
+            await fs.rename(filePath, path.join(__dirname, 'girls', file))
         }
     }
 }
