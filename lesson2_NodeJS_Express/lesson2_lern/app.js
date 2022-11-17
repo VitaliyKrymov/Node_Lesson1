@@ -2,6 +2,9 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
+
 const userDB = require('./dataBase/users')
 
 app.get('/', (req, res) => {
@@ -25,8 +28,22 @@ app.get('/users/:userId', (req, res) => {
 });
 
 app.post('/users',(req,res)=>{
-    res.status(201).json('Created');
-})
+const userInfo = req.body;
+console.log(userInfo);
+userDB.push(userInfo);
+
+    res.status(201).json("Created");
+
+});
+
+app.put('/users/:userId', (req, res) => {
+    const newUserInfo = req.body;
+    const {userId} = req.params;
+
+    userDB[userId] = newUserInfo;
+
+    res.json('Updated')
+});
 
 
 app.listen(5000, () => {

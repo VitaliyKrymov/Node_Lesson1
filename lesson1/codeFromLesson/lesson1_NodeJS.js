@@ -39,11 +39,11 @@ const builder = require('./stude/createStudent');
 //   console.log(err);
 // })
 //
-// fs.rename('./text.txt', './users.js', (err) => {
+// fs.rename('./text.txt', './users.json', (err) => {
 //   console.log(err);
 // })
 //
-// fs.rename('./users.js', './stude/users.json', (err) => {
+// fs.rename('./users.json', './stude/users.json', (err) => {
 //   console.log(err);
 // });
 //
