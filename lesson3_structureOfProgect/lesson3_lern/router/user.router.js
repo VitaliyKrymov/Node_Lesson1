@@ -8,4 +8,4 @@ router.get('/:userId',middleware.checkIsUserExist ,controller.getUserById);
 
 router.put('/:userId',middleware.checkIsUserExist ,controller.updateUser);
 
-module.exports = router;
+module.exports  = router;

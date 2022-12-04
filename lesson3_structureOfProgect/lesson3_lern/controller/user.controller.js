@@ -6,17 +6,26 @@ module.exports = {
 
         await res.json(userDb);
     },
-    getUserById: async (req, res) => {
-        const {userId} = req.params;
+    getUserById: async (req, res, next) => {
+        try {
+            await res.json(req.user);
+        } catch (e) {
+            next(e)
+        }
 
-        await res.json(req.user);
     },
-    updateUser: async (req, res) => {
-        const newUserInfo = req.body;
-        const {userId} = req.params;
+    updateUser: async (req, res, next) => {
+        try {
+            const newUserInfo = req.body;
+            const {userId} = req.params;
 
-        userDb[userId] = newUserInfo;
+            userDb[userId] = newUserInfo;
 
-        await res.json('Updated')
+            await res.json('Updated')
+        } catch (e) {
+            next(e)
+        }
     }
 }
+
+

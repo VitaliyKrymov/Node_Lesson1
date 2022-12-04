@@ -1,24 +1,28 @@
-const userDb= require('../dataBase/users')
+const userDb = require('../dataBase/users');
+const ApiError = require('../error/ApiError');
 
-module.exports={
-    checkIsUserExist:(req,res,next)=>{
 
-        try{
-            const {userId}=req.params;
+module.exports = {
+    checkIsUserExist: (req, res, next) => {
+
+        try {
+            const {userId} = req.params;
 
             const user = userDb[userId];
 
-            console.log(user);
+            // console.log(user);
 
-            if(!user){
-                throw new Error('User not found')
+            if (!user) {
+                throw new ApiError('User not found',503)
             }
 
-            req.user=user;
+            req.user = user;
 
             next();
-        }catch (e){
-        next(e);
+
+        } catch (e) {
+           // next({message:'TEST', status:418})
+           next(e)
         }
 
     }
