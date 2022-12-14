@@ -11,7 +11,7 @@ module.exports = {
       const user = users.find((u) => u.id === +userId);
 
       if (!user) {
-        throw new ApiError('Inna not found', 404);
+        throw new ApiError('User not found', 404);
       }
 
       req.users = users;
