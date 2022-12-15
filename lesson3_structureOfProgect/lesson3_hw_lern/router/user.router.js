@@ -7,7 +7,7 @@ router.get('/', controller.getAllUsers);
 
 router.post('/', middleware.isBodyValid ,controller.create);
 
-router.get('/:userId', middleware.checkIsUserExist, controller.getUsersById);
+router.get('/:userId', middleware.checkIsUserExist, controller.getUserById);
 
 router.put('/:userId', middleware.checkIsUserExist, controller.updateUser);
 
